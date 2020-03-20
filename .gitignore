@@ -1,3 +1,5 @@
 *.exe
 Data/
 App/ApacheJMeter
+Other/Update/*
+!Other/Update/*.ps1
