@@ -20,23 +20,28 @@ or to analyze overall performance under different load types.
 
 ## Runtime dependencies
 * 32-bit or 64-bit version of Windows.
-* 32-bit version of Java e.g.
+* 32-bit Java on 32-bit Windows e.g.
   [OpenJDK JRE](https://portableapps.com/apps/utilities/OpenJDKJRE),
   [OpenJDK](https://portableapps.com/apps/utilities/OpenJDK),
   [JRE](https://portableapps.com/apps/utilities/java_portable) or
   [JDK](https://portableapps.com/apps/utilities/jdkportable) 
+* 64-bit Java on 64-bit Windows e.g.
+  [OpenJDK JRE 64](https://portableapps.com/apps/utilities/OpenJDKJRE64),
+  [OpenJDK 64](https://portableapps.com/apps/utilities/OpenJDK64),
+  [JRE 64](https://portableapps.com/apps/utilities/java_portable_64) or
+  [JDK 64](https://portableapps.com/apps/utilities/jdkportable64) 
 
 ## Support matrix
 
 | OS              | 32-bit             | 64-bit              | 
 |-----------------|:------------------:|:-------------------:|
-| Windows XP      | :question:         | :question:          | 
-| Windows Vista   | :white_check_mark: | :white_check_mark:  | 
-| Windows 7       | :white_check_mark: | :white_check_mark:  | 
-| Windows 8       | :white_check_mark: | :white_check_mark:  | 
-| Windows 10      | :heavy_check_mark: | :heavy_check_mark:  |
+| Windows XP      | ![ns][ns]          | ![ns][ns]           | 
+| Windows Vista   | ![ps][ps]          | ![ps][ps]           | 
+| Windows 7       | ![ps][ps]          | ![ps][ps]           |  
+| Windows 8       | ![ps][ps]          | ![ps][ps]           |  
+| Windows 10      | ![fs][fs]          | ![fs][fs]           |
 
-Legend: :no_entry_sign: not supported;  :question: no data; :white_check_mark: supposed to work but not verified; :heavy_check_mark: verified;
+Legend: ![ns][ns] not supported;  ![nd][nd] no data; ![ps][ps] supported but not verified; ![fs][fs] verified;
   
 ## Status 
 This project is in early beta stage. 
@@ -61,3 +66,7 @@ To build the installer run the following command in the root of the git reposito
 ```
 powershell Other/Update/Update.ps1
 ```
+[nd]: Other/Icons/no_data.svg
+[ns]: Other/Icons/no_support.svg
+[ps]: Other/Icons/probably_supported.svg
+[fs]: Other/Icons/full_support.svg
