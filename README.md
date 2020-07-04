@@ -38,7 +38,7 @@ or to analyze overall performance under different load types.
 |-----------------|:------------------:|:-------------------:|
 | Windows XP      | ![ns][ns]          | ![ns][ns]           | 
 | Windows Vista   | ![ps][ps]          | ![ps][ps]           | 
-| Windows 7       | ![ps][ps]          | ![ps][ps]           |  
+| Windows 7       | ![fs][fs]          | ![ps][ps]           |  
 | Windows 8       | ![ps][ps]          | ![ps][ps]           |  
 | Windows 10      | ![fs][fs]          | ![fs][fs]           |
 
