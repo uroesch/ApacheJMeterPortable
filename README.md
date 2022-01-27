@@ -36,6 +36,8 @@ or to analyze overall performance under different load types.
 
 | OS              | 32-bit             | 64-bit              | 
 |-----------------|:------------------:|:-------------------:|
+| ReactOS 0.4.14  | ![nd][nd]          | ![nd][nd]           |
+| ReactOS 0.4.15  | ![nd][nd]          | ![nd][nd]           |
 | Windows XP      | ![ns][ns]          | ![ns][ns]           | 
 | Windows Vista   | ![ps][ps]          | ![ps][ps]           | 
 | Windows 7       | ![fs][fs]          | ![ps][ps]           |  
