@@ -36,7 +36,7 @@ or to analyze overall performance under different load types.
 
 | OS              | 32-bit             | 64-bit              | 
 |-----------------|:------------------:|:-------------------:|
-| ReactOS 0.4.14  | ![ns][ns]          | ![ns][ns]           |
+| ReactOS 0.4.14  | ![ns][ns]          | ![na][na]           |
 | ReactOS 0.4.15  | ![ns][ns]          | ![nd][nd]           |
 | Windows XP      | ![ns][ns]          | ![ns][ns]           | 
 | Windows Vista   | ![ps][ps]          | ![ps][ps]           | 
@@ -51,7 +51,6 @@ Legend: ![ns][ns] not supported; ![na][na] not applicable; ![nd][nd] no data; ![
 This project is in early beta stage. 
 
 ## Todo
-- [ ] Documentation
 - [ ] Replace Icons
 
 <!-- Start include INSTALL.md -->
