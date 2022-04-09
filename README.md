@@ -22,13 +22,9 @@ or to analyze overall performance under different load types.
 ## Runtime dependencies
 * 32-bit or 64-bit version of Windows.
 * 32-bit Java on 32-bit Windows e.g.
-  [OpenJDK JRE](https://portableapps.com/apps/utilities/OpenJDKJRE),
-  [OpenJDK](https://portableapps.com/apps/utilities/OpenJDK),
   [JRE](https://portableapps.com/apps/utilities/java_portable) or
   [JDK](https://portableapps.com/apps/utilities/jdkportable) 
 * 64-bit Java on 64-bit Windows e.g.
-  [OpenJDK JRE 64](https://portableapps.com/apps/utilities/OpenJDKJRE64),
-  [OpenJDK 64](https://portableapps.com/apps/utilities/OpenJDK64),
   [JRE 64](https://portableapps.com/apps/utilities/java_portable_64) or
   [JDK 64](https://portableapps.com/apps/utilities/jdkportable64) 
 
@@ -43,15 +39,17 @@ or to analyze overall performance under different load types.
 | Windows 7       | ![fs][fs]          | ![ps][ps]           |  
 | Windows 8       | ![ps][ps]          | ![ps][ps]           |  
 | Windows 10      | ![fs][fs]          | ![fs][fs]           |
-| Windows 11      | ![na][na]          | ![ps][ps]           |
+| Windows 11      | ![na][na]          | ![fs][fs]           |
 
 Legend: ![ns][ns] not supported; ![na][na] not applicable; ![nd][nd] no data; ![ps][ps] supported but not verified; ![fs][fs] verified;
   
 ## Status 
-This project is in early beta stage. 
+This project beta stage. 
 
-## Todo
-- [ ] Replace Icons
+## Known Issues
+The installation does not work with the newer OpenJDK versions.
+When encountering problems such a blank window check the log file located at
+`%PAL:DataDir%\ApacheJMeter\jmeter` for the version of java and the errors.
 
 <!-- Start include INSTALL.md -->
 ## Installation
