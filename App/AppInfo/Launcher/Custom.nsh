@@ -16,14 +16,14 @@ Var ProgramExecutable64
 
 !macro FindCommonJavaDirectory _JavaBits
 	ClearErrors
-	${If} ${FileExists} $PortableAppsDirectory\CommonFiles\OpenJDK${_JavaBits}
-		StrCpy $JavaDirectory $PortableAppsDirectory\CommonFiles\OpenJDK${_JavaBits}
-	${ElseIf} ${FileExists} $PortableAppsDirectory\CommonFiles\OpenJDKJRE${_JavaBits}
-		StrCpy $JavaDirectory $PortableAppsDirectory\CommonFiles\OpenJDKJRE${_JavaBits}
-	${ElseIf} ${FileExists} $PortableAppsDirectory\CommonFiles\JDK${_JavaBits}
+	${If} ${FileExists} $PortableAppsDirectory\CommonFiles\JDK${_JavaBits}
 		StrCpy $JavaDirectory $PortableAppsDirectory\CommonFiles\JDK${_JavaBits}
 	${ElseIf} ${FileExists} $PortableAppsDirectory\CommonFiles\Java${_JavaBits}
 		StrCpy $JavaDirectory $PortableAppsDirectory\CommonFiles\Java${_JavaBits}
+	${ElseIf} ${FileExists} $PortableAppsDirectory\CommonFiles\OpenJDK${_JavaBits}
+		StrCpy $JavaDirectory $PortableAppsDirectory\CommonFiles\OpenJDK${_JavaBits}
+	${ElseIf} ${FileExists} $PortableAppsDirectory\CommonFiles\OpenJDKJRE${_JavaBits}
+		StrCpy $JavaDirectory $PortableAppsDirectory\CommonFiles\OpenJDKJRE${_JavaBits}
 	${EndIf}
 !macroend
 !define FindCommonJavaDirectory `!insertmacro FindCommonJavaDirectory`
