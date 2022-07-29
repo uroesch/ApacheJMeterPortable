@@ -37,7 +37,7 @@ Param(
 # -----------------------------------------------------------------------------
 # Globals
 # -----------------------------------------------------------------------------
-$Version = "0.0.34-alpha"
+$Version = "0.0.36-alpha"
 $Debug   = $True
 
 # -----------------------------------------------------------------------------
@@ -214,10 +214,49 @@ Function Update-Application() {
 }
 
 # -----------------------------------------------------------------------------
-Function Postinstall() {
-  $Postinstall = "$PSScriptRoot\Postinstall.ps1"
-  If (Test-Path $Postinstall) {
-    . $Postinstall
+Function Source-InstallScript() {
+  Param(
+    [String] $Mode
+  )
+  $Script = "$PSScriptRoot\$Mode.ps1"
+  If (Test-Path $Script) {
+    . $Script
+  }
+}
+
+# -----------------------------------------------------------------------------
+Function Create-AdditionalLaunchers() {
+  $Control = (Read-IniFile -IniFile $AppInfoIni).Section("Control")
+  $Counter = 2
+  $Icons   = $Control.Item("Icons")
+  $PALDir  = Join-Path $InfraDir "PortableApps.comLauncher"
+  $Nsis    = [System.IO.Path]::Combine($PALDir, 'App', 'NSIS', 'makensis.exe')
+  $Script  = "$PALDir\Other\Source\PortableApps.comLauncher.nsi"
+  $Options = @(
+    "/O""$(ConvertTo-WindowsPath $PALDir)\Data\PortableApps.comLauncherGeneratorLog.txt""",
+    "/DPACKAGE=""$(ConvertTo-WindowsPath $AppRoot)""",
+    "/DNamePortable=""{0}""",
+    "/DAppID=""{1}""",
+    "/DIconPath=""$(ConvertTo-WindowsPath $AppInfoDir)\appicon{2}.ico"""
+  ) -join " "
+  While ($Counter -le $Icons) {
+    $Name    = $Control.Item("Name$Counter")
+    $AppId   = $Control.Item("Start$Counter").Replace(".exe", "")
+    $Args    = $Options -f $Name, $AppId, $Counter
+
+    Switch (Test-Unix) {
+      $True   {
+        $Arguments = "$Nsis $Args $(ConvertTo-WindowsPath $Script)"
+        $Command   = "wine"
+        break
+      }
+      default {
+        $Arguments = "$Args $(ConvertTo-WindowsPath $Script)"
+        $Command   = $Nsis
+      }
+    }
+    Start-Process $Command -ArgumentList $Arguments -NoNewWindow -Wait
+    $Counter++
   }
 }
 
@@ -225,6 +264,7 @@ Function Postinstall() {
 Function Create-Launcher() {
   Set-Location $AppRoot
   $AppPath  = (Get-Location)
+  Create-AdditionalLaunchers
   Try {
     $Command = Assemble-PAExec `
       -Name 'PortableApps.comLauncher' `
@@ -280,11 +320,6 @@ Function Invoke-Helper() {
     }
   }
 
-  #If ($Sleep) {
-  #  Debug info "Waiting for filsystem cache to catch up"
-  #  Start-Sleep $Sleep
-  #}
-
   Debug info "Run PA $Command $Arguments"
   Start-Process $Command -ArgumentList $Arguments -NoNewWindow -Wait
 }
@@ -293,8 +328,9 @@ Function Invoke-Helper() {
 # Main
 # -----------------------------------------------------------------------------
 $Config = Read-IniFile -IniFile $UpdateIni
+Source-InstallScript Preinstall
 Update-Application
 Update-Appinfo
-Postinstall
+Source-InstallScript Postinstall
 Create-Launcher
 Create-Installer
