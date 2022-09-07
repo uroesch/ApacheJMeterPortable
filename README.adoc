@@ -5,8 +5,8 @@
 :app-name: ApacheJMeterPortable
 :github-user: uroesch
 :app-project-url: https://github.com/{github-user}/{app-name}
-:upstream-name: ApacheJMeter
-:upstream-url: https://directory.apache.org/studio/
+:upstream-name: Apache JMeter
+:upstream-url: https://jmeter.apache.org/
 :shields-url: https://img.shields.io/github/v/release/{github-user}/{app-name}
 :icons: font
 :imagesdir: Other/Images
@@ -55,7 +55,7 @@ ifdef::env-github,env-gitlab[]
 +++
 endif::env-github,env-gitlab[]
 
-The https://jmeter.apache.org/[Apache JMeter™] application is open source
+The {upstream-url}[{upstream-name}™] application is open source
 software, a 100% pure Java application designed to load test functional
 behavior and measure performance. It was originally designed for testing
 Web Applications but has since expanded to other test functions.
