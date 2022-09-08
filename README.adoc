@@ -1,11 +1,10 @@
-
 = {app-name-spaced} for PortableApps.com
 :author: Urs Roesch
-:app-name-spaced: Apache JMeter Portable
+:app-name-spaced: Apache JMeter
 :app-name: ApacheJMeterPortable
 :github-user: uroesch
 :app-project-url: https://github.com/{github-user}/{app-name}
-:upstream-name: Apache JMeter
+:upstream-name: {app-name-spaced}
 :upstream-url: https://jmeter.apache.org/
 :shields-url: https://img.shields.io/github/v/release/{github-user}/{app-name}
 :icons: font
