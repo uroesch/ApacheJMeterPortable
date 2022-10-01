@@ -14,15 +14,20 @@
 :not-applicable: image:../Icons/not_applicable.svg[]
 :probably-supported: image:../Icons/probably_supported.svg[]
 :full-support: image:../Icons/full_support.svg[]
+ifdef::env-gitlab[]
+:git-base-url: https://gitlab.com/{git-user}
+endif::env-gitlab[]
 ifdef::env-github[]
+:git-base-url: https://github.com/{git-user}
 :tip-caption: :bulb:
 :note-caption: :information_source:
 :important-caption: :heavy_exclamation_mark:
 :caution-caption: :fire:
 :warning-caption: :warning:
-endif::[]
-:doctype: book
+endif::env-github[]
 
+
+ifdef::env-github[]
 image:{app-project-url}/workflows/build-linux/badge.svg[
   title="Linux Build",
   link={app-project-url}/actions?query=workflow%3Abuild-linux
@@ -43,6 +48,7 @@ image:{shields-url}?include_prereleases[
 image:https://img.shields.io/github/downloads/{github-user}/{app-name}/total[
   title="GitHub All Release Downloads"
 ]
+endif::env-github[]
 
 ifndef::env-github,env-gitlab[]
 image:../../App/AppInfo/appicon_128.png[float="left"]
@@ -87,8 +93,8 @@ or to analyze overall performance under different load types.
 | Windows Vista  | {probably-supported} | {probably-supported}
 | Windows 7      | {full-support}       | {probably-supported}
 | Windows 8      | {probably-supported} | {probably-supported}
-| Windows 10     | {full-support}       | {full-support} 
-| Windows 11     | {not-applicable}     | {full-support} 
+| Windows 10     | {full-support}       | {full-support}
+| Windows 11     | {not-applicable}     | {full-support}
 |===
 
 Legend:
